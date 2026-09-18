@@ -360,8 +360,7 @@
 
     function tryLoadCandidates(list, originalTitle, index) {
       if (index >= list.length) {
-        showStatus('لم يتم العثور على غلاف تلقائي. جرب اسماً أدق أو أضف السنة/الموسم.', 'error');
-        document.getElementById('metaInfo').classList.add('hidden');
+        searchExternal(originalTitle);
         return;
       }
 
@@ -386,14 +385,47 @@
       img.src = url;
     }
 
+    async function searchExternal(originalTitle) {
+      showStatus('لم ينجح التخمين المحلي؛ جاري البحث الحقيقي في الصفحات العامة...', 'loading');
+      try {
+        const response = await fetch(`/api/search?q=${encodeURIComponent(originalTitle)}`);
+        const payload = await response.json();
+        if (!response.ok || !payload.results || payload.results.length === 0) {
+          showStatus('لم يتم العثور على صورة لهذا العنوان. جرّب الاسم الرسمي أو أضف الموسم والحلقة.', 'error');
+          document.getElementById('metaInfo').classList.add('hidden');
+          return;
+        }
+        const result = payload.results[0];
+        const data = {
+          title: result.title || originalTitle,
+          studio: 'نتيجة بحث خارجي',
+          performers: '—',
+          date: '—',
+          url: result.image,
+          note: `تم استخراج الصورة من صفحة عامة. المصدر: ${result.page}`
+        };
+        showMeta(data);
+        loadImage(result.image, data);
+      } catch (error) {
+        showStatus('تعذر الاتصال بخدمة البحث. تأكد من نشر مجلد api على Vercel.', 'error');
+        document.getElementById('metaInfo').classList.add('hidden');
+      }
+    }
+
     function showMeta(data) {
       const el = document.getElementById('metaInfo');
+      const safe = (value) => String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
       el.innerHTML = `
-        <strong>العنوان:</strong> ${data.title}<br>
-        <strong>الاستوديو:</strong> ${data.studio}<br>
-        <strong>الممثلون:</strong> ${data.performers}<br>
-        <strong>التاريخ:</strong> ${data.date}<br>
-        <strong>ملاحظة:</strong> ${data.note || 'غلاف ترويجي رسمي'}
+        <strong>العنوان:</strong> ${safe(data.title)}<br>
+        <strong>الاستوديو:</strong> ${safe(data.studio)}<br>
+        <strong>الممثلون:</strong> ${safe(data.performers)}<br>
+        <strong>التاريخ:</strong> ${safe(data.date)}<br>
+        <strong>ملاحظة:</strong> ${safe(data.note || 'غلاف ترويجي رسمي')}
       `;
       el.classList.remove('hidden');
     }
