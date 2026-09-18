@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بحث غلاف ترويجي رسمي - Bratty Sis / Nubiles</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      min-height: 100vh;
+      color: #e8e8e8;
+      padding: 20px;
+      direction: rtl;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+      color: #00d4ff;
+      text-shadow: 0 0 10px rgba(0,212,255,0.3);
+    }
+    .subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+    .search-box {
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: #00d4ff;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid rgba(0,212,255,0.3);
+      border-radius: 10px;
+      background: rgba(0,0,0,0.3);
+      color: #fff;
+      font-size: 1.1rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    input[type="text"]:focus {
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0,212,255,0.2);
+    }
+    input[type="text"]::placeholder {
+      color: #666;
+    }
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    button {
+      flex: 1;
+      min-width: 140px;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #00d4ff, #0099cc);
+      color: #000;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,212,255,0.4);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .result {
+      background: rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid rgba(255,255,255,0.1);
+      min-height: 200px;
+      text-align: center;
+    }
+    .result h2 {
+      margin-bottom: 15px;
+      color: #00d4ff;
+      font-size: 1.2rem;
+    }
+    .meta {
+      background: rgba(0,0,0,0.3);
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      text-align: right;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    .meta strong {
+      color: #00d4ff;
+    }
+    #coverImage {
+      max-width: 100%;
+      max-height: 70vh;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      display: none;
+      margin: 0 auto;
+    }
+    .status {
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+    .status.loading {
+      background: rgba(0,212,255,0.15);
+      color: #00d4ff;
+    }
+    .status.error {
+      background: rgba(255,80,80,0.15);
+      color: #ff6b6b;
+    }
+    .status.success {
+      background: rgba(0,200,100,0.15);
+      color: #00e676;
+    }
+    .examples {
+      margin-top: 25px;
+      text-align: center;
+    }
+    .examples p {
+      color: #888;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+    .example-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .example-btns button {
+      flex: none;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      background: rgba(0,212,255,0.15);
+      color: #00d4ff;
+      border: 1px solid rgba(0,212,255,0.3);
+      border-radius: 20px;
+    }
+    .example-btns button:hover {
+      background: rgba(0,212,255,0.3);
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #555;
+      font-size: 0.8rem;
+    }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 غلاف ترويجي رسمي</h1>
+    <p class="subtitle">ابحث عن غلاف المشهد الرئيسي (Setup Scene) لمشاهد Bratty Sis / Nubiles</p>
+
+    <div class="search-box">
+      <label for="titleInput">اسم الفيلم / الحلقة</label>
+      <input type="text" id="titleInput" placeholder="مثال: At Your Service Sis - S3:E5 أو It Just Slipped In" autocomplete="off">
+      <div class="btn-row">
+        <button class="btn-primary" onclick="searchCover()">عرض الغلاف</button>
+        <button class="btn-secondary" onclick="clearAll()">مسح</button>
+      </div>
+    </div>
+
+    <div class="examples">
+      <p>أمثلة سريعة:</p>
+      <div class="example-btns">
+        <button onclick="fillExample('It Just Slipped In - S2:E8')">It Just Slipped In</button>
+        <button onclick="fillExample('At Your Service Sis - S3:E5')">At Your Service Sis</button>
+        <button onclick="fillExample('Slipping It In My Step Sis')">Slipping It In My Step Sis</button>
+      </div>
+    </div>
+
+    <div class="result" id="resultArea">
+      <div id="statusMsg" class="status hidden"></div>
+      <div id="metaInfo" class="meta hidden"></div>
+      <img id="coverImage" alt="غلاف ترويجي" onerror="imageFailed()" onload="imageLoaded()">
+      <p id="placeholder" style="color:#666; padding:40px 0;">اكتب اسم الحلقة واضغط «عرض الغلاف»</p>
+    </div>
+
+    <div class="footer">
+      يعتمد على أنماط BrattyFamily / Nubiles الرسمية • للأغراض التعليمية فقط
+    </div>
+  </div>
+
+  <script>
+    // قاعدة بيانات معروفة للأغلفة المؤكدة (من بحثنا السابق)
+    const knownCovers = {
+      "it just slipped in": {
+        title: "It Just Slipped In - S2:E8",
+        studio: "Bratty Sis",
+        performers: "Zoe Parker, Kyle Mason",
+        date: "2017-09-22",
+        url: "https://brattyfamily.com/wp-content/uploads/2017/09/it_just_slipped_in.jpg",
+        note: "مشهد الدش (الترويجي الرسمي من صفحة الحلقة)"
+      },
+      "it just slipped in - s2:e8": {
+        title: "It Just Slipped In - S2:E8",
+        studio: "Bratty Sis",
+        performers: "Zoe Parker, Kyle Mason",
+        date: "2017-09-22",
+        url: "https://brattyfamily.com/wp-content/uploads/2017/09/it_just_slipped_in.jpg",
+        note: "مشهد الدش (الترويجي الرسمي من صفحة الحلقة)"
+      },
+      "at your service sis": {
+        title: "At Your Service Sis - S3:E5",
+        studio: "Bratty Sis",
+        performers: "Nina Nirvana, Bambino",
+        date: "2017-11-24",
+        url: "https://brattyfamily.com/wp-content/uploads/2017/11/at_your_service_sis.jpg",
+        note: "Nina عالقة في المجفف (مشهد الإعداد الرئيسي)"
+      },
+      "at your service sis - s3:e5": {
+        title: "At Your Service Sis - S3:E5",
+        studio: "Bratty Sis",
+        performers: "Nina Nirvana, Bambino",
+        date: "2017-11-24",
+        url: "https://brattyfamily.com/wp-content/uploads/2017/11/at_your_service_sis.jpg",
+        note: "Nina عالقة في المجفف (مشهد الإعداد الرئيسي)"
+      },
+      "slipping it in my step sis": {
+        title: "Slipping It In My Step Sis - S18:E7",
+        studio: "Bratty Sis",
+        performers: "Harley Haze, Tyler Nixon",
+        date: "2021-05-21",
+        url: "https://brattyfamily.com/wp-content/uploads/2021/05/slipping_it_in_my_step_sis-1024x576.jpg",
+        note: "غلاف ترويجي من صفحة الحلقة"
+      }
+    };
+
+    function normalize(str) {
+      return str.toLowerCase()
+        .replace(/[–—]/g, '-')
+        .replace(/[^a-z0-9\s:-]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function toSlug(title) {
+      return title.toLowerCase()
+        .replace(/[–—]/g, ' ')
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, '_')
+        .replace(/_+/g, '_')
+        .replace(/^_|_$/g, '');
+    }
+
+    function toKebab(title) {
+      return title.toLowerCase()
+        .replace(/[–—]/g, ' ')
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+    }
+
+    function fillExample(text) {
+      document.getElementById('titleInput').value = text;
+      searchCover();
+    }
+
+    function clearAll() {
+      document.getElementById('titleInput').value = '';
+      document.getElementById('coverImage').style.display = 'none';
+      document.getElementById('coverImage').src = '';
+      document.getElementById('metaInfo').classList.add('hidden');
+      document.getElementById('statusMsg').classList.add('hidden');
+      document.getElementById('placeholder').classList.remove('hidden');
+    }
+
+    function showStatus(msg, type) {
+      const el = document.getElementById('statusMsg');
+      el.textContent = msg;
+      el.className = 'status ' + type;
+      el.classList.remove('hidden');
+    }
+
+    function searchCover() {
+      const raw = document.getElementById('titleInput').value.trim();
+      if (!raw) {
+        showStatus('اكتب اسم الفيلم أولاً', 'error');
+        return;
+      }
+
+      const key = normalize(raw);
+      document.getElementById('placeholder').classList.add('hidden');
+      document.getElementById('coverImage').style.display = 'none';
+
+      // أولاً: تحقق من القاعدة المعروفة
+      if (knownCovers[key]) {
+        const data = knownCovers[key];
+        showMeta(data);
+        loadImage(data.url, data);
+        return;
+      }
+
+      // ثانياً: جرب أنماط URL الشائعة
+      showStatus('جاري البحث عن الغلاف الترويجي...', 'loading');
+      const slugUnderscore = toSlug(raw.replace(/ - s\d+:e\d+/i, '').trim());
+      const slugKebab = toKebab(raw.replace(/ - s\d+:e\d+/i, '').trim());
+
+      // قائمة محاولات محتملة (أنماط BrattyFamily + Nubiles CDN)
+      const candidates = [
+        `https://brattyfamily.com/wp-content/uploads/2017/09/${slugUnderscore}.jpg`,
+        `https://brattyfamily.com/wp-content/uploads/2017/10/${slugUnderscore}.jpg`,
+        `https://brattyfamily.com/wp-content/uploads/2017/11/${slugUnderscore}.jpg`,
+        `https://brattyfamily.com/wp-content/uploads/2018/01/${slugUnderscore}.jpg`,
+        `https://brattyfamily.com/wp-content/uploads/2018/04/${slugUnderscore}.jpg`,
+        `https://brattyfamily.com/wp-content/uploads/2019/01/${slugUnderscore}.jpg`,
+        `https://brattyfamily.com/wp-content/uploads/2020/01/${slugUnderscore}.jpg`,
+        `https://brattyfamily.com/wp-content/uploads/2021/05/${slugUnderscore}.jpg`,
+        `https://brattyfamily.com/wp-content/uploads/2021/05/${slugKebab}.jpg`,
+        `https://images.nubiles-porn.com/videos/${slugKebab}/samples/cover1280.jpg`,
+        `https://images.nubiles-porn.com/videos/${slugUnderscore}/samples/cover1280.jpg`,
+        `https://brattyfamily.com/wp-content/uploads/2017/09/${slugKebab}.jpg`,
+        `https://brattyfamily.com/wp-content/uploads/2017/11/${slugKebab}.jpg`
+      ];
+
+      tryLoadCandidates(candidates, raw, 0);
+    }
+
+    function tryLoadCandidates(list, originalTitle, index) {
+      if (index >= list.length) {
+        showStatus('لم يتم العثور على غلاف تلقائي. جرب اسماً أدق أو أضف السنة/الموسم.', 'error');
+        document.getElementById('metaInfo').classList.add('hidden');
+        return;
+      }
+
+      const url = list[index];
+      const img = new Image();
+      img.onload = function() {
+        // نجحت
+        const data = {
+          title: originalTitle,
+          studio: "Bratty Sis / Nubiles (محتمل)",
+          performers: "—",
+          date: "—",
+          url: url,
+          note: "تم العثور عليه من نمط URL شائع • تحقق بالعين أنه غلاف ترويجي وليس ستيل داخلي"
+        };
+        showMeta(data);
+        loadImage(url, data);
+      };
+      img.onerror = function() {
+        tryLoadCandidates(list, originalTitle, index + 1);
+      };
+      img.src = url;
+    }
+
+    function showMeta(data) {
+      const el = document.getElementById('metaInfo');
+      el.innerHTML = `
+        <strong>العنوان:</strong> ${data.title}<br>
+        <strong>الاستوديو:</strong> ${data.studio}<br>
+        <strong>الممثلون:</strong> ${data.performers}<br>
+        <strong>التاريخ:</strong> ${data.date}<br>
+        <strong>ملاحظة:</strong> ${data.note || 'غلاف ترويجي رسمي'}
+      `;
+      el.classList.remove('hidden');
+    }
+
+    function loadImage(url, data) {
+      showStatus('جاري تحميل الصورة...', 'loading');
+      const img = document.getElementById('coverImage');
+      img.src = url;
+      img.dataset.url = url;
+    }
+
+    function imageLoaded() {
+      showStatus('✓ تم العثور على الغلاف الترويجي', 'success');
+      document.getElementById('coverImage').style.display = 'block';
+    }
+
+    function imageFailed() {
+      showStatus('فشل تحميل الصورة من هذا الرابط', 'error');
+    }
+
+    // Enter key
+    document.getElementById('titleInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') searchCover();
+    });
+  </script>
+</body>
+</html>
